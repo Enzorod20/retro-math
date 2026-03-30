@@ -235,3 +235,10 @@ body::after {
     /* Resplandor dorado con sombra celeste */
     text-shadow: 3px 3px 0px #75aadb, 0 0 20px #ffd700, 0 0 40px #ffd700; 
 }
+
+/* --- ESTILO PARA SUGA (BTS) --- */
+.suga-93 {
+    color: #b026ff; /* Violeta/Morado neón intenso */
+    animation: parpadeo 0.5s infinite;
+    text-shadow: 2px 2px 0px #fff, 0 0 20px #b026ff, 0 0 40px #b026ff;
+}

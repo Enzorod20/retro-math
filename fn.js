@@ -54,6 +54,7 @@ const botonRespuesta = document.getElementById('respuesta');
 botonRespuesta.addEventListener('click', verificarResultado);
 
 function verificarResultado(){
+    sumaTotal = 93
     const respuestaUsuario = parseInt(document.getElementById('resultado').value);
     const panelJuego = document.getElementById('panelJuego');
 
@@ -78,6 +79,9 @@ function verificarResultado(){
         } else if (sumaTotal === 3){
             mensajeFinal.className = 'campeones-3';
             mensajeFinal.innerText = 'CAMPEONES DEL MUNDO ⭐⭐⭐(3)'
+        } else if (sumaTotal === 93){
+            mensajeFinal.className = 'suga-93';
+            mensajeFinal.innerText = 'D-BOY 😼🇰🇷(93)'
         }
         else {
             mensajeFinal.className = 'win';
