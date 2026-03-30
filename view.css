@@ -15,6 +15,43 @@ body {
     background-size: 30px 30px;
 }
 
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    
+    /* Degradado de color retro (Cian a Magenta) */
+    background: linear-gradient(to bottom, #00ffff 0%, #ff00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Sombra de neón para dar profundidad */
+    filter: drop-shadow(4px 4px 0px #440044);
+    
+    /* Animación sutil de entrada */
+    animation: entradaTitulo 1s ease-out;
+}
+
+/* Efecto de parpadeo aleatorio para parecer un neón real */
+h1::after {
+    content: " 🕹️"; /* Un pequeño icono de joystick al final */
+    -webkit-text-fill-color: #fff;
+    animation: parpadeoNeon 3s infinite;
+}
+
+@keyframes entradaTitulo {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes parpadeoNeon {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; text-shadow: 0 0 10px #ff00ff; }
+    20%, 24%, 55% { opacity: 0.5; text-shadow: none; }
+}
+
 /* Estilos para los paneles principales */
 #configurarPanel, #panelJuego {
     background-color: #000;
