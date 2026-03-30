@@ -54,7 +54,6 @@ const botonRespuesta = document.getElementById('respuesta');
 botonRespuesta.addEventListener('click', verificarResultado);
 
 function verificarResultado(){
-    sumaTotal = 10;
     const respuestaUsuario = parseInt(document.getElementById('resultado').value);
     const panelJuego = document.getElementById('panelJuego');
 
