@@ -242,3 +242,22 @@ body::after {
     animation: parpadeo 0.5s infinite;
     text-shadow: 2px 2px 0px #fff, 0 0 20px #b026ff, 0 0 40px #b026ff;
 }
+/* --- ESTILOS DEL RELOJ (CONTADOR) --- */
+#contenedorReloj {
+    font-size: 1.5rem;
+    color: #ff3333; /* Rojo alarma */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #000, 0 0 10px #ff0000; /* Resplandor rojo */
+    animation: pulsoReloj 1s infinite;
+}
+
+#mostrarTiempo {
+    color: #fff; /* El número en sí será blanco para resaltar */
+}
+
+/* Animación de alerta para el tiempo */
+@keyframes pulsoReloj {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}

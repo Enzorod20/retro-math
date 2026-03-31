@@ -24,6 +24,7 @@ function mostrarSiguienteNumero(){
         document.getElementById('numeroDisplay').innerText = "¿Cuánto es?";
         document.getElementById('zonaRespuesta').style.display = 'block';
         document.getElementById('cantidadNumeros').style.display = 'none';
+        iniciarContador();
         return;
     }
    
@@ -51,9 +52,31 @@ function mostrarSiguienteNumero(){
 }
 
 const botonRespuesta = document.getElementById('respuesta');
-botonRespuesta.addEventListener('click', verificarResultado);
+let tiempoLimite = 8;
+let cronometro;
 
+
+function iniciarContador(){
+    const mostrarTiempo = document.getElementById('mostrarTiempo');
+    cronometro = setInterval(()=>{
+        tiempoLimite--;
+        mostrarTiempo.innerText = tiempoLimite;
+        if (tiempoLimite<=0) {
+            clearInterval(cronometro);
+            botonRespuesta.disabled = true;
+            verificarResultado();
+        }
+    }, 1000);
+}
+
+botonRespuesta.addEventListener('click', ()=>{
+    clearInterval(cronometro);
+     verificarResultado();
+    });
+
+    
 function verificarResultado(){
+    clearInterval(cronometro);
     const respuestaUsuario = parseInt(document.getElementById('resultado').value);
     const panelJuego = document.getElementById('panelJuego');
 
@@ -64,7 +87,6 @@ function verificarResultado(){
         panelJuego.appendChild(mensajeFinal);
     }
 
-    // --- LÓGICA DE EASTER EGGS Y VICTORIA/DERROTA ---
     if (respuestaUsuario === sumaTotal){
         if (sumaTotal === 777) {
             mensajeFinal.className = 'jackpot';
@@ -93,8 +115,9 @@ function verificarResultado(){
 
     document.getElementById('zonaRespuesta').style.display = 'none';
     document.getElementById('numeroDisplay').innerText = "FIN";
+    iniciarContador();
 
-    // Recarga automática después de 5 segundos
+  
     setTimeout(function() {
         location.reload();
     }, 3000);
